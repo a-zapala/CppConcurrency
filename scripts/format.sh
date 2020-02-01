@@ -26,7 +26,7 @@ export DIFF_CMD
 export DIFF_PARAMS
 export -f format_diff
 find "${PROJ_DIR}/src" -type f \
-  \( -name \*.c -o -name \*.cc -o -name \*.cpp -o -name *.h \) \
+  \( -name \*.c -o -name \*.cc -o -name \*.cpp -o -name \*.h \) \
   -print0 \
   | xargs -0 -n1 bash -c 'format_diff "$1"' {} \
   | $PAGER
