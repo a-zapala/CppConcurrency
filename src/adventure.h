@@ -124,9 +124,9 @@ class LonesomeAdventure : public Adventure {
 
     uint64_t res = for_dynamic[eggs_number][bag_capacity];
 
-    for (uint64_t i = 0; i <= eggs_number; ++i) free(for_dynamic[i]);
+    for (uint64_t i = 0; i <= eggs_number; ++i) delete[] for_dynamic[i];
 
-    free(for_dynamic);
+    delete[] for_dynamic;
     return res;
   }
 
@@ -149,7 +149,7 @@ class TeamAdventure : public Adventure {
     uint64_t current_resistance[2];
 
    public:
-    CyclicBarrier(uint64_t resistance)
+    explicit CyclicBarrier(uint64_t resistance)
         : thread_number(resistance), index{0}, current_resistance{0, 0} {}
 
    public:
@@ -292,12 +292,12 @@ class TeamAdventure : public Adventure {
     for (uint64_t i = 0; i < numberOfShamans; i++) {
       knapsack_tasks[i].get();
     }
-
+    delete[] knapsack_tasks;
     uint64_t res = for_dynamic[eggs_number][bag_capacity];
 
-    for (uint64_t i = 0; i <= eggs_number; ++i) free(for_dynamic[i]);
+    for (uint64_t i = 0; i <= eggs_number; ++i) delete[] for_dynamic[i];
 
-    free(for_dynamic);
+    delete[] for_dynamic;
     return res;
   }
 
@@ -316,6 +316,7 @@ class TeamAdventure : public Adventure {
       Crystal best_in_partition = results[i].get();
       if (best < best_in_partition) best = best_in_partition;
     }
+    delete[] results;
     return best;
   }
 
