@@ -54,7 +54,7 @@ class Adventure {
                                     uint64_t begin, uint16_t end) {
     uint64_t end_1 = begin + (end - begin) / 2;
     uint64_t end_2 = end;
-    if (end - begin != 1) {
+    if (end - begin > 1) {
       arrangeSandSequential(grains, begin, end_1);
       arrangeSandSequential(grains, end_1, end_2);
       merge(grains, begin, end_1, end_2);

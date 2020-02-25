@@ -43,7 +43,7 @@ def parse_test_output(test_name, output):
         if line == "":
             continue
         tokens = line.split(';')
-        if len(tokens) <> 2:
+        if len(tokens) != 2:
             raise RuntimeError("Invalid output")
         metric = tokens[0]
         value = int(tokens[1])
