@@ -1,4 +1,4 @@
-# Zadanie zaliczeniowe 3: Prastarzy Szamani
+# Prastarzy Szamani
 
 ## Wprowadzenie
 
